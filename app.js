@@ -3,38 +3,28 @@
 
 
 var actionDOM = document.getElementById("action");
-var index = 0;
-var actions = ["Connect", "Chat", "Create", "Debate"]
+var index = 1;
+var totalActions = 4;
 function changeAction(DOM){
-    currentAction = actions[index];
-    if(index == actions.length-1){
-        newAction = actions[0]
+    if(index == totalActions){
+        newIndex = 1
     }else {
-        newAction = actions[index+1]
+        newIndex = index+1
     }
     
+    currentActionDOM = document.getElementById(`a${index}`);
+    newActionDOM = document.getElementById(`a${newIndex}`);
 
-    actionDOM.style.transform = "translate(0, -100%)";
-    actionDOM.innerText = newAction;
-    setTimeout(() => {
-        actionDOM.style.transition = "transform none";
-        actionDOM.style.transform = "translate(0, 100%)";
+    currentActionDOM.style.opacity = 0;
+    newActionDOM.style.opacity = 1;
 
-        setTimeout(() => {
-
-        }, 100)
-        actionDOM.style.transition = "transform 1s";
-        actionDOM.style.transform = "translate(0, 0)"
-    }, 1000)
-
-
-    if(index < actions.length-1){
+    if(index < totalActions){
         index += 1;
     }else{
-        index = 0;
+        index = 1;
     }
     
-    setTimeout(changeAction, currentAction.length*300);
+    setTimeout(changeAction, (newActionDOM.innerText.length * 400)+800);
 }
 
-setTimeout(changeAction, 1000);
+setTimeout(changeAction, (document.getElementById("a1").innerText.length * 200)+800);

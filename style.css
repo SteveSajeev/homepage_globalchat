@@ -12,6 +12,7 @@ body {
     position: absolute;
     min-height: 100%;
     background: rgb(255, 255, 255);
+    overflow-y: hidden;
 }
 
 .background_image {
@@ -36,36 +37,59 @@ header {
     justify-content: space-between;
     background-color: transparent;
 }
-header .logo {
-    margin: 0 0 0 24px;
+header nav {
+    height: 100%;
+    width: 100%;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav .logo {
     height: 100%;
     display: flex;
     align-items: center;
     flex-direction: row;
 }
-header .logo img {
+header nav .logo img {
     width: 30px;
     height: 30px;
 }
-header .logo h1 {
-    font-size: 2.3vw;
+header nav .logo h1 {
+    font-size: 2.1vw;
+    font-weight: 600;
+    letter-spacing: -1px;
     margin: 0 0 0 10px;
 }
 
-header nav {
-    width: 40%;
-    margin: 0 24px 0 0;
-}
 header nav ul {
+    width: 34%;
+    height: 100%;
     list-style-type: none;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: space-between;
 }
 header nav ul li {
-    font-size: 2vw;
+    font-size: 1.9vw;
     font-weight: 500;
 }
+
+header nav a.open {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(170, 200, 255, 0.534);
+    border-radius: 20px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    font-size: 1.4vw;
+}
+
 
 
 /* |------ HOME ------ */
@@ -83,15 +107,29 @@ section.home {
     align-items: center;
 }
 .home .title h2 {
-    font-size: 4vw;
+    height: 1em;
+    font-size: 3vw;
     display: flex;
     flex-direction: row;
-    overflow-y: hidden;
+    align-items: center;
 }
-.home .title h2 #action {
-    transition: transform 1s;
+.home .title .action {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.8s;
+    line-height: 0;
 }
+.home .title .action span {
+    text-align: right;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.4s;
+} 
+.home .title .action span:nth-child(1){
+    opacity: 1;
 }
+
+
 .home .title p {
     margin: 10px 0 0 0;
     font-size: 1.9vw;
